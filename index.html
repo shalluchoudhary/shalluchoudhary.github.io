@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Dr. Shallu Choudhary, entomologist at SKUAST-Jammu, researching nesting behaviour, pathogens and domestication of Himalayan bumble bees.">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}</style>
+<title>Shallu Choudhary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column; a vertical "tergite band" (bumble bee abdomen colour bands) runs beside the hero; sections set off by pinned-specimen labels. */
+:root {
+  --bg: #f6f8f5;
+  --surface: #ffffff;
+  --fg: #17241f;
+  --muted: #55655e;
+  --rule: #d6dfda;
+  --pine: #1b5e4b;
+  --pollen: #d9a21b;
+  --tail: #c4552b;
+  --band-dark: #1d1f1c;
+  --label-bg: #fbfaf3;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Literata", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --step--1: 0.84rem;
+  --step-0: 1.02rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(2.4rem, 6vw, 3.6rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111916; --surface: #17211d; --fg: #e4ece8; --muted: #9db0a7; --rule: #2a3a33;
+    --pine: #6fc3a6; --pollen: #e8b83c; --tail: #e07a4f; --band-dark: #050605; --label-bg: #1c2621;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111916; --surface: #17211d; --fg: #e4ece8; --muted: #9db0a7; --rule: #2a3a33;
+  --pine: #6fc3a6; --pollen: #e8b83c; --tail: #e07a4f; --band-dark: #050605; --label-bg: #1c2621;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 46rem; margin: 0 auto; padding-block: 3rem 4rem; display: grid; gap: 3.5rem; }
+
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+a { color: var(--pine); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--pollen); outline-offset: 3px; border-radius: 2px; }
+em { font-style: italic; }
+
+/* ---- hero ---- */
+.hero { display: grid; grid-template-columns: 14px 1fr; gap: 1.5rem; align-items: stretch; }
+.tergites { display: grid; grid-template-rows: 1fr 0.7fr 1.2fr 0.8fr 1fr; border-radius: 7px; overflow: hidden; min-height: 100%; }
+.tergites span:nth-child(1) { background: var(--band-dark); }
+.tergites span:nth-child(2) { background: var(--pollen); }
+.tergites span:nth-child(3) { background: var(--band-dark); }
+.tergites span:nth-child(4) { background: var(--pollen); }
+.tergites span:nth-child(5) { background: var(--tail); }
+.hero-text { display: grid; gap: 1rem; min-width: 0; }
+.eyebrow { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--pine); }
+.hero h1 { font-size: var(--step-3); line-height: 1.02; font-weight: 700; letter-spacing: -0.02em; }
+.lede { font-size: var(--step-1); line-height: 1.5; color: var(--fg); max-width: 36rem; }
+.lede em { color: var(--pine); }
+.facts { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); }
+
+/* ---- section heads ---- */
+section { display: grid; gap: 1.25rem; }
+.sec-head { display: flex; align-items: baseline; gap: 0.75rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.5rem; }
+.sec-head h2 { font-size: var(--step-2); font-weight: 700; }
+.sec-head .tag { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-left: auto; }
+
+.prose { display: grid; gap: 1rem; max-width: 40rem; }
+
+/* ---- specimen labels (study taxa) ---- */
+.labels { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 0.75rem; }
+.label {
+  background: var(--label-bg);
+  border: 1px solid var(--rule);
+  padding: 0.7rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--muted);
+  display: grid; gap: 0.15rem;
+}
+.label b { font-family: var(--font-body); font-style: italic; font-weight: 600; font-size: 0.98rem; color: var(--fg); }
+
+/* ---- lists ---- */
+.entries { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
+.entry { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; }
+.entry .when { font-family: var(--font-mono); font-size: var(--step--1); color: var(--pine); padding-top: 0.15rem; font-variant-numeric: tabular-nums; }
+.entry .what { min-width: 0; display: grid; gap: 0.2rem; }
+.entry h3 { font-size: 1.05rem; font-weight: 500; }
+.entry .note { color: var(--muted); font-size: 0.95rem; }
+
+.pubs { counter-reset: pub; list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.pubs li { counter-increment: pub; display: grid; grid-template-columns: 2rem 1fr; gap: 0.5rem; }
+.pubs li::before { content: counter(pub); font-family: var(--font-mono); color: var(--pine); font-size: var(--step--1); padding-top: 0.2rem; }
+.pubs li > div { min-width: 0; }
+.pubs .kind { display: inline-block; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-top: 0.2rem; }
+.me { font-weight: 600; }
+
+.awards { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
+.awards li { display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem; padding-bottom: 0.9rem; border-bottom: 1px dashed var(--rule); }
+.awards li:last-child { border-bottom: 0; padding-bottom: 0; }
+.awards .yr { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: var(--pollen); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.awards div { min-width: 0; }
+.awards strong { font-weight: 600; }
+.awards span { display: block; color: var(--muted); font-size: 0.95rem; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.chip { font-family: var(--font-mono); font-size: 0.8rem; padding: 0.3rem 0.65rem; border: 1px solid var(--rule); border-radius: 999px; color: var(--fg); background: var(--surface); }
+
+/* ---- contact ---- */
+.contact { background: var(--surface); border: 1px solid var(--rule); padding: 1.5rem; display: grid; gap: 1rem; }
+.contact-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
+.contact-row .k { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); width: 5.5rem; }
+.contact-row .v { user-select: all; overflow-wrap: anywhere; min-width: 0; }
+button.copy {
+  font-family: var(--font-mono); font-size: 0.75rem; padding: 0.3rem 0.7rem;
+  background: transparent; color: var(--pine); border: 1px solid var(--pine); border-radius: 4px; cursor: pointer;
+}
+button.copy:hover { background: var(--pine); color: var(--surface); }
+
+footer { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 1rem; }
+
+@media (max-width: 520px) {
+  .entry, .awards li { grid-template-columns: 1fr; gap: 0.25rem; }
+  .hero { gap: 1rem; grid-template-columns: 10px 1fr; }
+  .contact-row .k { width: 100%; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tergites span { transform-origin: top; animation: grow 700ms cubic-bezier(.2,.7,.2,1) both; }
+  .tergites span:nth-child(2) { animation-delay: 80ms; }
+  .tergites span:nth-child(3) { animation-delay: 160ms; }
+  .tergites span:nth-child(4) { animation-delay: 240ms; }
+  .tergites span:nth-child(5) { animation-delay: 320ms; }
+  @keyframes grow { from { transform: scaleY(0.6); opacity: 0.6; } to { transform: scaleY(1); opacity: 1; } }
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="tergites" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="hero-text">
+      <p class="eyebrow">Entomologist · SKUAST-Jammu</p>
+      <h1>Dr. Shallu Choudhary</h1>
+      <p class="lede">I study the native bumble bees of the North-Western Himalayas: how they nest, what they forage on, the pathogens they carry, and how they can be reared to pollinate crops. My work sits where <em>pollinator ecology</em>, <em>bee health</em> and practical agriculture meet.</p>
+      <div class="facts">
+        <span>Ph.D., Entomology</span>
+        <span>Jammu, J&amp;K, India</span>
+        <span>Hindi · English · Dogri · Punjabi</span>
+      </div>
+    </div>
+  </header>
+
+  <section id="research" aria-labelledby="h-research">
+    <div class="sec-head"><h2 id="h-research">Research</h2><span class="tag">Pollinator ecology</span></div>
+    <div class="prose">
+      <p>My doctoral research at Sher-e-Kashmir University of Agricultural Sciences and Technology of Jammu examines <em>nesting behaviour and pathogen spillover in native bumble bees of the North-Western Himalayas of the Jammu region</em>, including infection by <em>Crithidia</em> and <em>Nosema</em>. The aim is to understand these wild pollinators well enough to rear and domesticate them for crop pollination, without spreading disease to wild populations.</p>
+      <p>Before that, my M.Sc. thesis described the nest architecture and foraging behaviour of the small carpenter bee <em>Ceratina viridissima</em>, work that received the Mahima Best Thesis Award in 2022.</p>
+    </div>
+    <div class="labels" aria-label="Taxa in my research">
+      <div class="label"><b>Bombus haemorrhoidalis</b>IND: J&amp;K, NW Himalaya<br>Apidae: Bombini</div>
+      <div class="label"><b>Bombus trifasciatus</b>IND: J&amp;K, NW Himalaya<br>Apidae: Bombini</div>
+      <div class="label"><b>Bombus tunicatus</b>IND: J&amp;K, NW Himalaya<br>Apidae: Bombini</div>
+      <div class="label"><b>Ceratina viridissima</b>IND: J&amp;K, Jammu subtropics<br>Apidae: Ceratinini</div>
+    </div>
+    <div class="chips" aria-label="Research interests">
+      <span class="chip">Bumble bee rearing &amp; domestication</span>
+      <span class="chip">Non-Apis pollinators</span>
+      <span class="chip">Bee pathogens</span>
+      <span class="chip">Apiculture</span>
+      <span class="chip">Insect taxonomy</span>
+      <span class="chip">Bio-inspired technology</span>
+      <span class="chip">Forensic entomology</span>
+    </div>
+  </section>
+
+  <section id="education" aria-labelledby="h-education">
+    <div class="sec-head"><h2 id="h-education">Education</h2><span class="tag">SKUAST-Jammu</span></div>
+    <ul class="entries">
+      <li class="entry"><span class="when">2022 –</span><div class="what"><h3>Ph.D., Entomology</h3><p class="note">Sher-e-Kashmir University of Agricultural Sciences and Technology of Jammu. Advisor: Dr. R. K. Gupta, Division of Entomology.</p></div></li>
+      <li class="entry"><span class="when">2022</span><div class="what"><h3>M.Sc. (Agriculture), Entomology</h3><p class="note">SKUAST-Jammu · OGPA 8.31 / 10 · Mahima Best Thesis Award</p></div></li>
+      <li class="entry"><span class="when">2019</span><div class="what"><h3>B.Sc. (Hons.) Agriculture</h3><p class="note">SKUAST-Jammu · OGPA 7.99 / 10</p></div></li>
+    </ul>
+  </section>
+
+  <section id="publications" aria-labelledby="h-pubs">
+    <div class="sec-head"><h2 id="h-pubs">Publications</h2><span class="tag">Selected</span></div>
+    <ol class="pubs">
+      <li><div><span class="me">Choudhary, S.</span> et al. (2026). Nesting dynamics of two key bumble bee species in the Indian Himalayas. <em>Tropical Agriculture</em> (University of the West Indies). Accepted.<br><span class="kind">Research paper · lead author</span></div></li>
+      <li><div><span class="me">Choudhary, S.</span>, Sharma, D. &amp; Gupta, R. K. (2024). Unraveling the nesting architecture and foraging behaviour of <em>Ceratina viridissima</em> in the sub-tropical terrain of Jammu, India. <em>Ecology, Environment and Conservation</em>, November Supplement.<br><span class="kind">Research paper · first &amp; corresponding author</span></div></li>
+      <li><div><span class="me">Choudhary, S.</span> (Ed.). <em>Emerging Trends in Entomology</em>.<br><span class="kind">Edited book</span></div></li>
+      <li><div>Api-therapist and entomo-medicines. ISBN 978-81-96330-62-0.<br><span class="kind">Book chapter</span></div></li>
+      <li><div>Thiruvengadam, K., <span class="me">Choudhary, S.</span>, Saikia, A., Satwika, M. &amp; Sood, S. Exploring the scope of forensic entomology: insects as tools in criminal investigations. <em>New Era Agriculture Magazine</em>.<br><span class="kind">Popular article</span></div></li>
+    </ol>
+  </section>
+
+  <section id="awards" aria-labelledby="h-awards">
+    <div class="sec-head"><h2 id="h-awards">Awards</h2><span class="tag">5 since 2022</span></div>
+    <ul class="awards">
+      <li><span class="yr">2025</span><div><strong>Best Research Award</strong><span>Entomological Science Academy, National Congress on Entomology &amp; Emerging Agrotechnologies, Sanasar</span></div></li>
+      <li><span class="yr">2025</span><div><strong>Best Poster Award, NCEEA-2025</strong><span>“Bumble bee biodiversity unveiled: a study on the genus <em>Bombus</em> from the Indian Himalayas”</span></div></li>
+      <li><span class="yr">2024</span><div><strong>Best Poster Award, EESL-2024</strong><span>“Insect-driven pollination robotics for future agriculture”, Entomological Science Academy &amp; SKUAST-Jammu</span></div></li>
+      <li><span class="yr">2024</span><div><strong>Third Position (Poster), VAKSANA-2024</strong><span>“Impact of pathogens and pesticides on bumble bee health”, Shri Vaishnav Institute of Agriculture, Indore</span></div></li>
+      <li><span class="yr">2022</span><div><strong>Mahima Best Thesis Award</strong><span>For the M.Sc. thesis on <em>Ceratina viridissima</em></span></div></li>
+    </ul>
+  </section>
+
+  <section id="talks" aria-labelledby="h-talks">
+    <div class="sec-head"><h2 id="h-talks">Talks &amp; training</h2><span class="tag">Conferences</span></div>
+    <ul class="entries">
+      <li class="entry"><span class="when">Jan 2025</span><div class="what"><h3>Research methodology, science communication &amp; IPR</h3><p class="note">Skill development training, CSIR–Indian Institute of Integrative Medicine</p></div></li>
+      <li class="entry"><span class="when">Nov 2024</span><div class="what"><h3>Oral presentation, climate-smart agriculture conference</h3><p class="note">International conference, Department of Entomology, BHU, Varanasi</p></div></li>
+      <li class="entry"><span class="when">Jun 2024</span><div class="what"><h3>Training workshop on bumble bee rearing</h3><p class="note">AICRP on Honey Bees &amp; Pollinators, Dr. Y. S. Parmar University of Horticulture &amp; Forestry, Nauni</p></div></li>
+      <li class="entry"><span class="when">Oct 2022</span><div class="what"><h3>Poster: nest architecture of <em>Ceratina viridissima</em></h3><p class="note">Indian Ecological Society International Conference, SKUAST-Jammu</p></div></li>
+    </ul>
+    <p class="note" style="color:var(--muted)">Life Member, Entomological Science Academy of India.</p>
+  </section>
+
+  <section id="contact" aria-labelledby="h-contact">
+    <div class="sec-head"><h2 id="h-contact">Contact</h2><span class="tag">Open to faculty &amp; research roles</span></div>
+    <div class="contact">
+      <p>I'm open to Assistant Professor, scientist and research positions in entomology and pollinator science, and to collaborations on bumble bee biology and bee health.</p>
+      <div class="contact-row">
+        <span class="k">Email</span>
+        <span class="v" id="email">choudhary.shally1995@gmail.com</span>
+        <button class="copy" type="button" data-copy="email" id="copy-email">Copy</button>
+      </div>
+      <div class="contact-row">
+        <span class="k">LinkedIn</span>
+        <a class="v" href="https://www.linkedin.com/in/shallu-choudhary-ab4861224" target="_blank" rel="noopener">linkedin.com/in/shallu-choudhary-ab4861224</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>Dr. Shallu Choudhary · Division of Entomology, SKUAST-Jammu · Updated October 2026</footer>
+</div>
+
+<script>
+document.querySelectorAll('button.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.copy);
+    var text = el.textContent.trim();
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else { fallback(); }
+    } catch (e) { fallback(); }
+  });
+});
+</script>
+</body>
+</html>
